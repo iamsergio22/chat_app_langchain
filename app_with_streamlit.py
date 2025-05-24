@@ -43,7 +43,6 @@ def run():
     prompt = st.chat_input("Add your prompt")
 
     selected_model = st.session_state["selected_model"]
-    print(selected_model)
     llm = ChatOllama(model=selected_model, temperature=0.7)
 
     if prompt:
