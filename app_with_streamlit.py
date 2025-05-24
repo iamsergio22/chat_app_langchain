@@ -35,6 +35,7 @@ def get_models():
 
 
 def run():
+    """Set the application and select the llm. Show interface to user."""
     st.set_page_config(page_title="Chat Applicaction")
     st.header("Chat :blue[Application]")
     st.selectbox("Select LLM:", get_models(), key="selected_model")
@@ -43,7 +44,9 @@ def run():
     prompt = st.chat_input("Add your prompt")
 
     selected_model = st.session_state["selected_model"]
-    llm = ChatOllama(model=selected_model, temperature=0.7)
+
+    llm = ChatOllama(model=selected_model, temperature=0.3)
+
 
     if prompt:
         st.chat_message("user").write(prompt)
